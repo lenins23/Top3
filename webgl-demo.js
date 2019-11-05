@@ -63,7 +63,7 @@ function main() {
 
 
 
-  const texture = loadTexture(gl, 'cubetexture.png');
+  const texture = loadTexture(gl, 'cubetexture1.png');
 
   var then = 0;
 
