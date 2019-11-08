@@ -31,12 +31,13 @@ function main() {
 
   const fsSource = `
     varying highp vec2 vTextureCoord;
+    out vec4 color;
 
     uniform sampler2D uSampler;
     uniform sampler2D u2Sampler;
 
     void main(void) {
-      gl_FragColor = mix(texture2D(uSampler, vTextureCoord),texture2D(uSampler, vTextureCoord),0.4);
+      color = mix(texture2D(uSampler, vTextureCoord),texture2D(u2Sampler, vTextureCoord), 0.4);
     }
   `;
 
@@ -147,6 +148,7 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
     // Clear the canvas before we start drawing on it.
 
     gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+    
 
     // Create a perspective matrix, a special matrix that is
     // used to simulate the distortion of perspective in a camera.
@@ -232,7 +234,6 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
     gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, buffers.indices);
 
     // Tell WebGL to use our program when drawing
-
     gl.useProgram(programInfo.program);
 
     // Set the shader uniforms
