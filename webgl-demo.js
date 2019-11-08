@@ -2,8 +2,7 @@ var cubeRotation = 0.0;
 
 main();
 
-//
-// 
+//Hola Github
 //
 function main() {
   const canvas = document.querySelector('#glcanvas');
