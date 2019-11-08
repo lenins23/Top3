@@ -36,7 +36,7 @@ function main() {
     uniform sampler2D u2Sampler;
 
     void main(void) {
-      gl_FragColor = mix(texture2D(uSampler, vTextureCoord),texture2D(uSampler, vTextureCoord),0.4));
+      gl_FragColor = mix(texture2D(uSampler, vTextureCoord),texture2D(uSampler, vTextureCoord),0.4);
     }
   `;
 
