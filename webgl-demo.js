@@ -2,7 +2,8 @@ var cubeRotation = 0.0;
 
 main();
 
-//Hola Github
+//
+// 
 //
 function main() {
   const canvas = document.querySelector('#glcanvas');
@@ -30,11 +31,15 @@ function main() {
 
   const fsSource = `
     varying highp vec2 vTextureCoord;
+    out vec4 color;
 
-    uniform sampler2D uSampler;
+
+
+    uniform sampler2D textureUno;
+    uniform sampler2D textureDos;
 
     void main(void) {
-      gl_FragColor = texture2D(uSampler, vTextureCoord);
+      gl_FragColor = mix(texture2D(textureUno, vTextureCoord),texture2D(textureDos, vTextureCoord), 0.4);
     }
   `;
 
@@ -62,7 +67,9 @@ function main() {
 
 
 
-  const texture = loadTexture(gl, 'cubetexture1.png');
+  const texture1 = loadTexture(gl, 'cubetexture.png');
+  const texture2 = loadTexture(gl, 'cubetexture1.png');
+
 
   var then = 0;
 
